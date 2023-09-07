@@ -8,11 +8,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-image: url('https://source.unsplash.com/1920x1080/?weather,clouds');
+            background-image: url('https://source.unsplash.com/1920x1080/?city,{{city}}');
             background-size: cover;
             background-repeat: no-repeat;
             color: white;
-        }
+        } 
         .detailed-metrics {
             background-color: rgba(0,0,0,0.7);
             padding: 20px;
@@ -41,6 +41,7 @@
         <div class="mt-4">
             {% if weather_data %}
                 <div class="detailed-metrics">
+                    <h1>{{ city }}, {{state}} {{country}}</h1>
                     <h2>{{ weather_data.main }}</h2>
                     <h4>{{ weather_data.description }}</h4>
                     <img src="https://openweathermap.org/img/wn/{{ weather_data.icon }}@2x.png" alt="Weather Icon">

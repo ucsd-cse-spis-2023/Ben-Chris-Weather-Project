@@ -9,6 +9,9 @@ API_KEY = os.getenv('API_KEY')  # assuming you have set an environment variable 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     weather_data = None
+    city = None
+    state = None
+    country = None
     if request.method == 'POST':
         city = request.form['cityName']
         state = request.form['stateName']
@@ -26,7 +29,7 @@ def index():
                 'pressure': response['main']['pressure'],
                 'wind_speed': response['wind']['speed']
             }
-    return render_template('index.html', weather_data=weather_data)
+    return render_template('index.html', weather_data=weather_data, city=city, state=state, country=country)
 
 if __name__ == '__main__':
     app.run(debug=True)
